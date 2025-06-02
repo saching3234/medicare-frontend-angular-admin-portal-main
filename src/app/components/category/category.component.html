@@ -1,0 +1,58 @@
+<div class="container my-5" >
+   
+    <!--Searching Elements-->
+  <div class="d-flex justify-content-star " style="max-width:auto;">
+    <button class="btn btn-success my-2 my-sm-0 mx-2"  (click)="addNewCat()" type="submit">Add_New_Category</button>
+    
+    
+    <input class="form-control me-sm-2 " #txtCatName="ngModel" type="text" name="txtCatName" placeholder="Search Category By Name" ngModel>
+    <button class="btn btn-success my-2 my-sm-0 " (click)="searchByCat(txtCatName)" type="submit">Search</button> 
+    
+    <input class="form-control me-sm-2 mx-5" #txtCid="ngModel" type="text" name="txtCid" placeholder="Search Category By Id" ngModel>
+    <button class="btn btn-success my-2 my-sm-0" (click)="searchByCid(txtCid)" type="submit">Search</button>
+   
+    
+  </div>
+   
+    <div class="table-responsive">
+       <table class="table table-hover table-bordered my-2 ">
+           <thead>
+             <tr class="text-bg-info">
+               <th scope="col">CATEGORY ID</th>
+               <th scope="col">CATEGORY Name</th>
+               <th scope="col">Edit</th>
+               <th scope="col">Delete Category</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let cat of cats">
+               <th scope="row" class="my-3">{{cat.cid}}</th>
+               <td  class="my-3" scope="row">{{cat.cname}}</td>
+               
+             
+             
+               <td scope="row"> <a class="my-4 badge bg-primary" [routerLink]="['/editCat',cat.cid]">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                 </svg>  </a>
+               </td>     
+               
+               
+                   <!-- active status colom  -->
+                   <td scope="row">
+                                 
+                      <button class="btn btn-danger my-3" (click)="deleteCat(cat)">Delete </button>
+                   
+                  </td>
+
+
+
+
+
+               
+              </tr>          
+           </tbody>
+         </table>
+       </div>
+   </div>

@@ -1,0 +1,71 @@
+<div class="row container">
+ 
+    <div class="my-5  col-md-8" >
+    <div class="card border-info mb-4" style="max-width: 35rem;">
+      <div class="card-header"><h3>Update Delivery Status Of Order Form</h3></div>
+      <div class="card-body" *ngIf="order">
+        <form #addNewProd="ngForm" (ngSubmit)="submit(addNewProd)" >
+            <div class="form-group">
+                <label for="pname">order Name:</label>
+                <input type="text" #pname="ngModel" required name="pname" class="form-control" disabled ngModel="{{order.pname}}">   
+              </div>
+
+          <div class="form-group">
+            <label for="pdesc">order Description</label>
+            <textarea #pdesc="ngModel" disabled   required
+              name="pdescription" class="form-control"   ngModel={{order.pdescription}} > </textarea>            
+          </div>
+
+          <div class="form-group">
+            <label for="brand"> Brand Name</label>
+            <input type="text" #brand="ngModel" disabled  required
+              name="brand" class="form-control"  ngModel={{order.brand}} >            
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="available_quantity"> Quantity Ordered:</label>
+            <input type="number" #available_quantity="ngModel"  disabled   name="quantity" class="form-control" ngModel={{order.quantity}}>
+            
+          </div>
+ 
+          <div class="form-group">
+            <label for="phone">Price per unit:</label>
+            <input type="number" #price="ngModel" required  disabled  name="price_per_unit" class="form-control" ngModel={{order.price_per_unit}}>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">User Id</label>
+            <input type="number" #userid="ngModel" required  disabled  name="userid" class="form-control" ngModel={{order.userId}}>
+          </div>
+        
+          <div class="form-group">
+            <label for="phone">User Name</label>
+            <input type="text" #userName="ngModel" required  disabled  name="userName" class="form-control" ngModel={{order.userName}}>
+          </div>
+         
+         <!-- Order delivery status-->
+         <div class="form-group">
+          <label for="deliveryStatus">User Name</label>
+          <input type="text" #deliveryStatus="ngModel" required    name="deliveryStatus" class="form-control" ngModel={{order.deliveryStatus}}>
+        </div>
+         
+
+          
+          <button [disabled]="addNewProd.invalid"  class="btn btn-primary my-3" type="submit">Update order Details</button>
+          <button class="btn btn-success mx-3" (click)="gotoOrdersFun()">Go to the order details </button>
+          <br>          
+        </form>        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4 my-5">
+    <img  style="height: 60%; width: 100%;" src="http://localhost:8080/{{order.img_name}}"order.img_name alt="Card image cap">
+   
+  </div>
+
+
+</div>

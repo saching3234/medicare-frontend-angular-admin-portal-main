@@ -1,0 +1,86 @@
+<div class="row container">
+ 
+    <div class="my-5  col-md-8" >
+    <div class="card border-info mb-4" style="max-width: 35rem;">
+      <div class="card-header"><h3>Edit Product Form</h3></div>
+      <div class="card-body" *ngIf="product">
+        <form #addNewProd="ngForm" (ngSubmit)="submit(addNewProd)" >
+            <div class="form-group">
+                <label for="pname">Product Name:</label>
+                <input type="text" #pname="ngModel" required name="pname" class="form-control"  ngModel="{{product.pname}}">
+                <div *ngIf="pname.touched&&pname.invalid" class="alert alert-danger">
+                  <p *ngIf="pname.errors?.['required']">product name required</p>
+                </div>
+              </div>
+
+          <div class="form-group">
+            <label for="pdesc">Enter Product Description</label>
+            <input type="text" #pdesc="ngModel"  required
+              name="pdescription" class="form-control"   ngModel={{product.pdescription}} >
+            <div *ngIf="pdesc.touched&&pdesc.invalid" class="alert alert-danger">
+              <p *ngIf="pdesc.errors?.['required']">Product Description required</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="brand">Enter Brand Name</label>
+            <input type="text" #brand="ngModel"  required
+              name="brand" class="form-control"  ngModel={{product.brand}} >
+            <div *ngIf="brand.touched&&brand.invalid" class="alert alert-danger">
+              <p *ngIf="brand.errors?.['required']">Brand Name required</p>
+            </div>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="available_quantity">Enter Available Quantity:</label>
+            <input type="number" #available_quantity="ngModel" required    name="available_quantity" class="form-control" ngModel={{product.available_quantity}}>
+            <div *ngIf="available_quantity.touched&&available_quantity.invalid" class="alert alert-danger">
+              <p *ngIf="available_quantity.errors?.['required']">Available Quantity required</p>
+            </div>
+          </div>
+ 
+          <div class="form-group">
+            <label for="phone">Price per unit:</label>
+            <input type="number" #price="ngModel" required    name="price_per_unit" class="form-control" ngModel={{product.price_per_unit}}>
+             <div *ngIf="price.touched&&price.invalid" class="alert alert-danger">
+              <p *ngIf="price.errors?.['required']">Price per quantity required</p>
+              
+             </div>
+          </div>
+
+          <div class="form-group form-check form-switch my-4">
+            <label for="activeStatus">Is the product active:</label>
+            <input class="form-check-input" type="checkbox"  #activeStatus="ngModel" name="active" id="activeStatus" [checked]="product.active"  [(ngModel)]=product.active>
+          </div>
+         
+          <div class="form-group  ">
+            <p class="text-warning"> Select The Product Image if you want to change the current image :  </p>
+            <input class="mx-5 my-1" type="file"  name="img_name" (change)="onSelectedFile($event)" accept="image/*" #productimg="ngModel" id="fileToUpload" ngModel>
+                      
+          </div>
+         
+
+          <div class="form-group">
+            <label for="category" class="form-label mt-4">Select The Category</label>
+            <select class="form-select" id="category" name="cid" #category="ngModel"  ngModel="{{product.cid}}" >
+              <option *ngFor="let cat of cats" value={{cat.cid}} [selected]="cat.cid==product.cid" >{{cat.cname}} </option>              
+            </select>
+          </div>  
+          <button [disabled]="addNewProd.invalid"  class="btn btn-primary my-3" type="submit">Update Product Details</button>
+          <button class="btn btn-success mx-3" (click)="goProductFun()">Go to the product details </button>
+          <br>          
+        </form>        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-4 my-5">
+    <img  style="height: 60%; width: 100%;" src="http://localhost:8080/{{product.img_name}}"product.img_name alt="Card image cap">
+   
+  </div>
+
+
+</div>
