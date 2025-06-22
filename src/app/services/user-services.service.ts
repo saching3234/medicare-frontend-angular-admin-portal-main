@@ -26,15 +26,15 @@ export class UserServicesService {
   }
 
   //method for login the user
-  checkLogin(user:any){
-  console.log(user)
-  return this.httpClient.post(this.url+'/login',user);
+  checkLogin(admin:any){
+  console.log(admin)
+  return this.httpClient.post(this.url+'/login',admin);
   }
 
   //method for register the user
-  registerUser(user:any){
-    console.log("register user service method called :",user);
-    return this.httpClient.post(this.url+'/register',user);
+  registerUser(admin:any){
+    console.log("register user service method called :",admin);
+    return this.httpClient.post(this.url+'/register',admin);
   }
 
   //get category details method

@@ -5,7 +5,7 @@ import { UserServicesService } from 'src/app/services/user-services.service';
 
 @Component({
   selector: 'app-user-edit',
-  templateUrl: './user-edit.component.html',
+  templateUrl:'./user-edit.component.html',
   styleUrls: ['./user-edit.component.css']
 })
 

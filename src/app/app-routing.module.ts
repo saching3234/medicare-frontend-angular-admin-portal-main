@@ -13,6 +13,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { CategoryComponent } from './components/category/category.component';
 import { EditCatComponent } from './components/edit-cat/edit-cat.component';
 import { OrderEditComponent } from './components/order-edit/order-edit.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 const routes: Routes = [
 {path:'' ,component:HomeComponent},
@@ -27,7 +29,8 @@ const routes: Routes = [
 {path:'category',component:CategoryComponent},
 {path:'addNewCat',component:AddNewCategoryComponent},
 {path:'editCat/:cid',component:EditCatComponent},
-{path:'editOrder/:oid',component:OrderEditComponent}
+{path:'editOrder/:oid',component:OrderEditComponent},
+{path:'register',component:RegisterComponent}
 
 ];
 

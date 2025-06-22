@@ -24,6 +24,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { EditCatComponent } from './components/edit-cat/edit-cat.component';
 import { OrderEditComponent } from './components/order-edit/order-edit.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { OrderEditComponent } from './components/order-edit/order-edit.component
     EditProductComponent,
     EditCatComponent,
     OrderEditComponent,
+    RegisterComponent
     
   ],
   imports: [
